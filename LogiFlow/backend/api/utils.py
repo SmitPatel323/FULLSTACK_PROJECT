@@ -56,6 +56,12 @@ def train_and_save_models():
 
 def predict_delivery_time(distance_km):
     """Loads the time prediction model and predicts delivery time."""
+
+    # For short, inner-city trips, a simple formula is more reliable.
+    if distance_km < 20:
+        # Assume an average city speed of 30 km/h, plus 10 minutes (0.17 hours) for traffic/stops.
+        return (distance_km / 30.0) + 0.17
+    
     if not os.path.exists(TIME_MODEL_PATH):
         # Fallback if model not trained
         return (distance_km / 40.0) # Assume average 40 km/h

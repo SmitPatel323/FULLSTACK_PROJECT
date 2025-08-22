@@ -222,7 +222,7 @@ class DashboardAnalyticsView(APIView):
                 'monthlyVolume': monthly_volume_data,
                 'deliveryPerformance': { 'labels': ['On-Time', 'Delayed'], 'data': [on_time_percentage, 100 - on_time_percentage] }
             },
-            'predictions': { 'deliveryTime': f"{predicted_time_hours:.1f} hours", 'maintenanceCost': f"${predicted_maint_cost:.2f}" }
+            'predictions': { 'deliveryTime': f"{predicted_time_hours:.1f} hours", 'maintenanceCost': f"₹{predicted_maint_cost:.2f}" }
         }
         return Response(data, status=status.HTTP_200_OK)
 
