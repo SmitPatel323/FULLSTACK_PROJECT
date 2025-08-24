@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Ship } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react'; 
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
@@ -10,6 +11,8 @@ export default function LoginPage() {
     const [loading, setLoading] = useState(false);
     const { login } = useAuth();
     const navigate = useNavigate();
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,6 +31,9 @@ export default function LoginPage() {
     const pageStyle = { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' };
     const formStyle = { width: '100%', maxWidth: '400px', padding: '2rem', textAlign: 'center' };
 
+    const passwordContainerStyle = { position: 'relative', display: 'flex', alignItems: 'center' };
+    const iconStyle = { position: 'absolute', right: '12px', cursor: 'pointer', color: '#6b778c' };
+
     return (
         <div style={pageStyle}>
             <div className="card" style={formStyle}>
@@ -36,7 +42,19 @@ export default function LoginPage() {
                 {error && <p style={{ color: 'var(--danger-color)', marginBottom: '1rem' }}>{error}</p>}
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="form-input"/>
-                    <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required className="form-input"/>
+                    <div style={passwordContainerStyle}>
+                        <input 
+                            type={showPassword ? "text" : "password"} 
+                            placeholder="Password" 
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)} 
+                            required 
+                            className="form-input"
+                        />
+                        <span onClick={() => setShowPassword(!showPassword)} style={iconStyle}>
+                            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                        </span>
+                    </div>
                     <button type="submit" className="btn btn-primary" disabled={loading}>{loading ? 'Signing In...' : 'Sign In'}</button>
                 </form>
                 <p style={{ marginTop: '1.5rem' }}>
