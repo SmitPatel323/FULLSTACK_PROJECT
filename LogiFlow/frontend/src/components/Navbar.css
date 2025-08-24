@@ -73,13 +73,13 @@
 /* --- Responsive Styles for Mobile/Tablet --- */
 @media (max-width: 768px) {
     .navbar-container {
-        position: fixed; /* Changed to fixed to overlay content */
+        position: fixed; 
         height: 100%;
-        transform: translateX(-100%); /* Hide it off-screen by default */
+        transform: translateX(-100%); 
         box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 
     .navbar-container.is-open {
-        transform: translateX(0); /* Slide it into view when active */
+        transform: translateX(0);
     }
 }

@@ -80,6 +80,6 @@ class ShipmentSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ('client', 'agent', 'vehicle', 'status', 'created_at', 'delivered_at', 'start_location_lat', 'start_location_lng', 'end_location_lat', 'end_location_lng', 'route_polyline',
                             'distance_km', 'predicted_duration',
-            'weather_forecast','current_lat', 'current_lng'
+                            'weather_forecast','current_lat', 'current_lng'
             )
 

@@ -12,7 +12,6 @@
     transition: padding 0.3s ease-in-out;
 }
 
-/* --- Styles for Responsive Menu --- */
 
 .mobile-menu-button {
     display: none; 
@@ -32,7 +31,7 @@
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 99; /* Below navbar but above content */
+    z-index: 99; 
     display: none; 
 }
 
@@ -43,11 +42,11 @@
     }
 
     .mobile-menu-button {
-        display: block; /* Show the button on mobile */
+        display: block; 
     }
 
     .overlay {
-        display: block; /* Show the overlay on mobile */
+        display: block; 
     }
 }
 

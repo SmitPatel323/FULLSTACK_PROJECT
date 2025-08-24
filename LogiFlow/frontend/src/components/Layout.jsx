@@ -15,7 +15,6 @@ const [isNavOpen, setIsNavOpen] = useState(false);
 
     return (
         <div className="layout-container">
-            {/* The mobile menu button (hamburger icon) */}
             <button className="mobile-menu-button" onClick={toggleNav}>
                 <Menu size={28} />
             </button>
@@ -23,7 +22,6 @@ const [isNavOpen, setIsNavOpen] = useState(false);
             <Navbar isNavOpen={isNavOpen} />
 
             <main className="layout-main-content">
-                {/* Overlay to darken content when nav is open on mobile */}
                 {isNavOpen && <div className="overlay" onClick={toggleNav}></div>}
                 {children}
             </main>
