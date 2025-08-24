@@ -63,13 +63,10 @@ class Shipment(models.Model):
     
     # Stores the encoded polyline from Google Maps for drawing the route
     route_polyline = models.TextField(blank=True, null=True)
-# --- NEW FIELDS TO STORE DYNAMIC DATA ---
     distance_km = models.FloatField(null=True, blank=True)
     predicted_duration = models.CharField(max_length=50, blank=True, null=True)
 
-# --- NEW FIELD TO STORE WEATHER DATA ---
     weather_forecast = models.CharField(max_length=100, blank=True, null=True)
-    # --- NEW FIELDS TO STORE LIVE LOCATION ---
     current_lat = models.FloatField(null=True, blank=True)
     current_lng = models.FloatField(null=True, blank=True)
     
