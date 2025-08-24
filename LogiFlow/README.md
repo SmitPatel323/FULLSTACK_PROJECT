@@ -59,8 +59,8 @@ LogiFlow/
     ├── api/
     │   ├── migrations/
     │   ├── ml_models/
-    │   │   ├── delivery_time_model.joblib
-    │   │   └── maintenance_cost_model.joblib
+    │   │   ├── delivery_time_model.pkl
+    │   │   └── maintenance_cost_model.pkl
     │   ├── __init__.py
     │   ├── admin.py
     │   ├── apps.py
@@ -158,7 +158,7 @@ py -m venv venv
 venv\Scripts\activate
 
 # Install all required packages
-pip install django djangorestframework django-cors-headers djangorestframework-simplejwt scikit-learn joblib requests beautifulsoup4
+pip install django djangorestframework django-cors-headers djangorestframework-simplejwt scikit-learn pickle requests beautifulsoup4 os
 
 # Apply database migrations
 python manage.py makemigrations
